@@ -19,6 +19,10 @@ impl Context {
         self.buffer.put_pixel(x, y, pixel);
     }
 
+    pub fn in_bounds(&self, x: u32, y: u32) -> bool {
+        x>0 && x < self.buffer.width() && y>0 && y < self.buffer.height()
+    }
+
     pub fn get_buffer(self) -> image::RgbaImage {
         self.buffer
     }
